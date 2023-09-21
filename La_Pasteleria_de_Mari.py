@@ -14,7 +14,6 @@ Después de un tiempo dado
 •	¿Cuántas mesas se limpiaron en el tiempo de jornada? 
 '''
 import random
-import json
 
 lista_pasteles = ['Choco', 'Naranja', 'Quesito', 'Choco Blanco']
 
