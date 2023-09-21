@@ -3,7 +3,7 @@ Features:
 
 •   El cliente puede decidir pedir varias veces ✅
 •	Hacer un generador aleatorio de pedidos. ✅
-•	Anotar los pedidos de forma organizada, siguiendo la plantilla del establecimiento.
+•	Anotar los pedidos de forma organizada, siguiendo la plantilla del establecimiento. ✅
 •	Hay un número finito de mesas (4). Después de servidos, los clientes se levantarán espontáneamente liberando las mesas. 
 •	Crear función limpiar mesas.
 
@@ -14,8 +14,17 @@ Después de un tiempo dado
 •	¿Cuántas mesas se limpiaron en el tiempo de jornada? 
 '''
 import random
+import json
 
 lista_pasteles = ['Choco', 'Naranja', 'Quesito', 'Choco Blanco']
+
+def anotar_pedidos(nombre, sabores, precio):
+    archivo_txt = open('Proyectos/Pedidos_Pasteleria.txt', 'a+')
+    cliente = nombre
+    pedido = sabores
+    cuenta = precio
+    archivo_txt.write('\nCliente: ' + cliente + '\nPedido: ' + pedido + '\nCuenta: ' + str(cuenta) + '\n')
+    archivo_txt.close()
 
 def generador_pedidos():
     sabor = random.choice(lista_pasteles)
@@ -63,14 +72,16 @@ def pasteleria_main():
         saborEscogido = input()
     ganancias += dinero(saborEscogido)
     print('Muy bien! Pastelín de',saborEscogido,'saliendo!')
+    anotar_pedidos(name, saborEscogido, dinero(saborEscogido))
 
-    repetir = input('¿Quiéres algo más?' )
+    repetir = input('¿Quiéres algo más? ' )
     while repetir.lower() == 'si':
         saborEscogido = input('¿De que sabor quieres tu nuevo pastel? ')
         ganancias += dinero(saborEscogido)
         print('Muy bien! Pastelín de',saborEscogido,'saliendo!')
         repetir = input('¿Quiéres algo más? ')
         print('Que tengas un buen dia.🥰')
+        anotar_pedidos(name, saborEscogido, dinero(saborEscogido))
 
     nuevo_cliente = input('¿Hay algún cliente más? ')
 
@@ -89,14 +100,16 @@ def pasteleria_main():
             saborEscogido = input()
         ganancias += dinero(saborEscogido)
         print('Muy bien! Pastelín de',saborEscogido,'saliendo!')
+        anotar_pedidos(name, saborEscogido, dinero(saborEscogido))
         print('¿Quiéres algo más? ')
         repetir = input()
         while repetir.lower() == 'si':
             saborEscogido = input('¿De que sabor quieres tu nuevo pastel? ')
             ganancias += dinero(saborEscogido)
             print('Muy bien! Pastelín de',saborEscogido,'saliendo!')
+            anotar_pedidos(name, saborEscogido, dinero(saborEscogido))
             repetir = input('¿Quiéres algo más? ')
-            print('Que tengas un buen dia.🥰')
+        print('Que tengas un buen dia.🥰')
         nuevo_cliente = input('¿Hay algún cliente más? ')
         
 
