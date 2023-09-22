@@ -18,7 +18,7 @@ import random
 lista_pasteles = ['Choco', 'Naranja', 'Quesito', 'Choco Blanco']
 
 def anotar_pedidos(nombre, sabores, precio):
-    archivo_txt = open('Proyectos/Pedidos_Pasteleria.txt', 'a+')
+    archivo_txt = open('database/Pedidos_Pasteleria.txt', 'a+')
     cliente = nombre
     pedido = sabores
     cuenta = precio
