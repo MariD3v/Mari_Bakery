@@ -3,7 +3,8 @@ Features:
 
 •   El cliente puede decidir pedir varias veces ✅
 •	Hacer un generador aleatorio de pedidos. ✅
-•	Anotar los pedidos de forma organizada, siguiendo la plantilla del establecimiento. ✅
+•	Anotar los pedidos de forma organizada, siguiendo la plantilla del establecimiento y almacenandose
+    en el fichero de cada dia.✅
 •	Hay un número finito de mesas (4). Después de servidos, los clientes se levantarán espontáneamente liberando las mesas. 
 •	Crear función limpiar mesas.
 
@@ -14,17 +15,34 @@ Después de un tiempo dado
 •	¿Cuántas mesas se limpiaron en el tiempo de jornada? 
 '''
 import random
+from datetime import datetime
+import os
 
 lista_pasteles = ['Choco', 'Naranja', 'Quesito', 'Choco Blanco']
 
 def anotar_pedidos(nombre, sabores, precio):
-    archivo_txt = open('database/Pedidos_Pasteleria.txt', 'a+')
-    cliente = nombre
-    pedido = sabores
-    cuenta = precio
-    archivo_txt.write('\nCliente: ' + cliente + '\nPedido: ' + pedido + '\nCuenta: ' + str(cuenta) + '\n')
-    archivo_txt.close()
+    ahora = datetime.now()
+    fecha_pedidos = str('_' + str(ahora.day) + '_' + str(ahora.month) + '_' + str(ahora.year))
+    url_archivo = str('database/Pedidos' + fecha_pedidos + '.txt')
 
+    if os.path.isfile(url_archivo): #Si ya hay creado un fichero de hoy
+        archivo_txt = open(url_archivo, 'a+')
+        cliente = nombre
+        pedido = sabores
+        cuenta = precio
+        archivo_txt.write('\nCliente: ' + cliente + '\nPedido: ' + pedido + '\nCuenta: ' + str(cuenta) + '\n')
+        archivo_txt.close()
+
+    else: #Si no hay ningún fichero de hoy creado aun
+        archivo_txt = open(url_archivo, 'x') #Lo creamos
+        archivo_txt.close()
+        archivo_txt = open(url_archivo, 'a+') #Lo abrimos y añadimos la información
+        cliente = nombre
+        pedido = sabores
+        cuenta = precio
+        archivo_txt.write('\nCliente: ' + cliente + '\nPedido: ' + pedido + '\nCuenta: ' + str(cuenta) + '\n')
+        archivo_txt.close()
+        
 def generador_pedidos():
     sabor = random.choice(lista_pasteles)
     return sabor
