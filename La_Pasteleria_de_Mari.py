@@ -97,9 +97,8 @@ def pasteleria_main():
         ganancias += dinero(saborEscogido)
         print('Muy bien! Pastelín de',saborEscogido,'saliendo!')
         repetir = input('¿Quiéres algo más? ')
-        print('Que tengas un buen dia.🥰')
         anotar_pedidos(name, saborEscogido, dinero(saborEscogido))
-
+    print('Que tengas un buen dia.🥰')
     nuevo_cliente = input('¿Hay algún cliente más? ')
 
     #El resto de clientes
