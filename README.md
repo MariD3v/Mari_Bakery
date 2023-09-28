@@ -13,7 +13,15 @@ Un simulador de pastelería usado como una herramienta divertida y educativa que
 
 ## VERSIONES
 
-v1.0 Pastelería base
-v2.0 Back-end pastelería
-v3.0 Front-end pastelería
+#### v1.0 Pastelería Original (Legacy)
+
+Se trata de la versión inicial del proyecto, en su forma más simple. Optamos por conservarla como versión legado. 
+
+#### v2.0 Back-end Deployment 
+
+En esta versión de la pastelería buscamos implementar un back-end para relacionar los pedidos de los clientes y procesar informaciones relevantes para el negocio. 
+
+#### v3.0 Front-end Deployment
+
+En esta versión, buscamos implementar un front-end para dar un formato visual e interactivo al simulador de la pastelería. Asimismo, mostrar informaciones relevantes através de una interfaz de usuario.  
 
