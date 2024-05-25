@@ -5,8 +5,6 @@ Un simulador de pastelería usado como una herramienta divertida y educativa que
 
 ## FUNCIONALIDADES
 - Atención a clientes
-- Servicio a mesas
-- Limpieza del local
 - Registro de pedidos y contabilidad diarios en una base de datos.
 - Gran variedad de sabores a disposición del cliente.
 - Generador automático de pedidos
