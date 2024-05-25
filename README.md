@@ -21,7 +21,4 @@ Se trata de la versión inicial del proyecto, en su forma más simple. Optamos p
 
 En esta versión de la pastelería buscamos implementar un back-end para relacionar los pedidos de los clientes y procesar informaciones relevantes para el negocio. 
 
-#### v3.0 Front-end Deployment
-
-En esta versión, buscamos implementar un front-end para dar un formato visual e interactivo al simulador de la pastelería. Asimismo, mostrar informaciones relevantes através de una interfaz de usuario.  
 
